@@ -1,0 +1,9 @@
+<form method="POST">
+        {%csrf_token %}
+        <label for="">name</label>
+        <input type="text" placeholder="enter your name" name="user" value="{{items.name}}">
+        <label for=""> age</label>
+        <input type="number" placeholder="enter your age" name="user-age" value="{{items.age}}">
+        
+        <button>submit</button>
+    </form>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .heading{
+        
+        text-align: center;
+        gap: 20px;
+
+    
+    }
+    .heading h1{
+        padding: 20px;
+
+    }
+    .name{
+        display:flex;
+        flex-direction: column;
+        justify-content: center;
+        margin: auto;
+        gap: 20px;
+        width:100px;
+        text-align:center;
+        width:100%;
+    }
+    .main-n{
+        width: 50%;
+        margin: auto;
+        padding: 20px;
+        border: 2px solid grey;
+        border-radius: 10px;
+    }
+    body {
+        background-color: beige;
+    }
+
+    h1 {
+        color: white;
+        background-color: navy
+    }
+
+    H4 {
+        color: gold;
+        background-color: navy;
+        text-align: center;
+    }
+    .card-container{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+        margin-top: 40px;
+    }
+    .detailss{
+        width: 20px;
+        background: white;
+        padding: 20px;
+        border: 1px solid black;
+        border-radius: 12px;
+        border-left: 6px solid #007bff;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        transition:0.3s
+
+    }
+    .btn-group{
+        border: none;
+        padding: 8px 18px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    .delete-btn{
+        background-color: #007bff;
+    }
+    .update-btn{
+        background-color: #007bff;
+    }
+</style>
+
+<body>
+    <div class="heading">
+            <h1>STUDENT ROLL BOOK<span style="color: gold; font-size:15px; gap: 20px;">ATTENCENCE & RECORD</span></h1>
+        </div>
+    <div class="main-n">
+        
+        <form method="POST">
+            {%csrf_token %}
+            <div class="name">
+            <label for="">name</label>
+            <input type="text" placeholder="enter your name" name="user">
+            <label for=""> age</label>
+            <input type="number" placeholder="enter your age" name="user-age">
+
+            <button style="background-color: blue;">submit</button>
+            </div>
+            
+
+            
+        </form>
+    </div>
+    <div class="card-container">
+    {% for i in item %}
+    <div class="details" >
+    <p>{{i.name}}</p>
+    <p>{{i.age}}</p>
+    <div class="btn-group">
+    <button class="delete-btn"><a href="{% url 'delete' i.id%}">delete</a></button>
+    <button class="update-btn"><a href="{% url 'update' i.id%}">update</a></button>
+    </div>
+    </div>
+    {% endfor %}
+    </div>
+
+
+</body>
+
+</html>
