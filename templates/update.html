@@ -1,9 +1,63 @@
-<form method="POST">
-        {%csrf_token %}
-        <label for="">name</label>
-        <input type="text" placeholder="enter your name" name="user" value="{{items.name}}">
-        <label for=""> age</label>
-        <input type="number" placeholder="enter your age" name="user-age" value="{{items.age}}">
-        
-        <button>submit</button>
-    </form>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .heading {
+
+        width: 50%;
+        margin: auto;
+        padding: 20px;
+        border: 2px solid grey;
+        border-radius: 10px;
+
+
+    }
+
+    .name {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin: auto;
+        gap: 20px;
+        width: 100px;
+        text-align: center;
+        width: 100%;
+    }
+
+    .main-n {
+        width: 50%;
+        margin: auto;
+        padding: 20px;
+        border: 2px solid grey;
+        border-radius: 10px;
+    }
+</style>
+
+<body>
+    <div class="heading">
+        <h1 style="color: rgb(0, 0, 0); gap: 20px; text-align: center;">UPDATE</h1>
+                <div class="main-n">
+
+                    <form method="POST">
+                        {%csrf_token %}
+                        <div class="name">
+                            <label for="">name</label>
+                            <input type="text" placeholder="enter your name" name="user" value="{{items.name}}">
+                            <label for=""> age</label>
+                            <input type="number" placeholder="enter your age" name="user-age" value="{{items.age}}">
+
+                            <button style="background-color: blue;">submit</button>
+                        </div>
+
+                    </form>
+                </div> 
+    </div>
+
+</body>
+
+</html>
